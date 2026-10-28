@@ -1,0 +1,58 @@
+/* 后台令牌：与前台共用中性灰阶与强调色，只把密度调高（面板更小、行更紧）。
+   改这里即可整体换肤，不要在页面里写死颜色。 */
+:root {
+  --admin-workspace: #f5f5f7;
+  --admin-panel: #ffffff;
+  --admin-subtle: #fbfbfd;
+  --admin-active: #f2f2f5;
+  --admin-border: rgba(0, 0, 0, 0.075);
+  --admin-border-strong: rgba(0, 0, 0, 0.12);
+  --admin-text: #1d1d1f;
+  --admin-muted: #6e6e73;
+  --admin-faint: #86868b;
+  --admin-ink: #1d1d1f;
+  --admin-ink-hover: #000000;
+  --admin-brand: #0071e3;
+  --admin-selected: rgba(0, 113, 227, 0.09);
+  /* 历史命名：--admin-green 实际承担"后台强调色"的角色，这里对齐前台强调蓝。
+     真正的成功语义用 --admin-success，不要复用 --admin-green。 */
+  --admin-green-bg: rgba(0, 113, 227, 0.09);
+  --admin-green: #0071e3;
+  --admin-green-hover: #0068d0;
+  --admin-focus: #0071e3;
+  --admin-danger: #d70015;
+  --admin-danger-bg: rgba(215, 0, 21, 0.07);
+  --admin-warning: #b25000;
+  --admin-warning-bg: rgba(178, 80, 0, 0.08);
+  --admin-success: #248a3d;
+  --admin-success-bg: rgba(36, 138, 61, 0.08);
+  --admin-shadow: 0 1px 2px rgba(0, 0, 0, 0.035);
+  --admin-shadow-raised: 0 2px 6px rgba(0, 0, 0, 0.04), 0 12px 32px rgba(0, 0, 0, 0.06);
+  --admin-font: var(--font-sans, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif);
+  --admin-font-mono: var(--font-mono, "Cascadia Mono", "SFMono-Regular", Consolas, monospace);
+  --admin-sidebar-width: 256px;
+  --admin-topbar-height: 64px;
+  --admin-radius-panel: 14px;
+  --admin-radius-control: 9px;
+  --admin-radius-pill: 999px;
+  --admin-space-3xs: 4px;
+  --admin-space-2xs: 8px;
+  --admin-space-xs: 12px;
+  --admin-space-sm: 16px;
+  --admin-space-md: 24px;
+  --admin-space-lg: 32px;
+  --admin-space-xl: 48px;
+  --admin-duration: 180ms;
+}
+
+.admin-page {
+  font-family: var(--admin-font);
+  color: var(--admin-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.admin-page h1,
+.admin-page h2,
+.admin-page h3 {
+  letter-spacing: -0.02em;
+}

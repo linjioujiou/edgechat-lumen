@@ -1,0 +1,63 @@
+/* ============================================================
+   chat-theme.css · 聊天工作区语义令牌
+   参照信息类原生应用的三栏结构：
+   图标栏（更深一档）→ 会话栏（浅灰玻璃）→ 消息区（纯白纸面）。
+   出站气泡用强调蓝，入站气泡用系统浅灰，靠色块而非边框区分。
+   ============================================================ */
+
+:root {
+  /* 面 */
+  --chat-paper: #ffffff;
+  --chat-canvas: #ffffff;
+  --chat-rail: #ececf0;
+  --chat-hover: rgba(0, 0, 0, 0.038);
+  --chat-selected: rgba(var(--lumen-accent-rgb, 0, 113, 227), 0.12);
+  --chat-pressed: rgba(var(--lumen-accent-rgb, 0, 113, 227), 0.16);
+
+  /* 气泡 */
+  --chat-outgoing: #0071e3;
+  --chat-outgoing-ink: #ffffff;
+  --chat-incoming: #f2f2f7;
+
+  /* 文字 */
+  --chat-ink: var(--lumen-ink, #1d1d1f);
+  --chat-muted: var(--lumen-ink-3, #6e6e73);
+  --chat-subtle: var(--lumen-ink-4, #86868b);
+
+  /* 线与强调 */
+  --chat-line: rgba(0, 0, 0, 0.075);
+  --chat-accent: var(--lumen-accent, #0071e3);
+  --chat-accent-text: var(--lumen-accent-text, #0059b3);
+  --chat-accent-hover: var(--lumen-accent-hover, #0077ed);
+  --chat-accent-pressed: var(--lumen-accent-press, #0068d0);
+  --chat-danger: var(--lumen-danger, #d70015);
+  --chat-danger-soft: var(--lumen-danger-soft, rgba(215, 0, 21, 0.08));
+  --chat-disabled: rgba(0, 0, 0, 0.06);
+  --chat-online: #1f7a34;
+  --chat-scrollbar: rgba(0, 0, 0, 0.18);
+  --chat-scrim: rgba(0, 0, 0, 0.28);
+
+  /* 阴影：气泡几乎不投影，只留 1px 塑形 */
+  --chat-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+  --chat-shadow-panel: 0 12px 40px rgba(0, 0, 0, 0.14);
+
+  /* 旧组件仍在引用的别名，统一在此收口，避免解析成空值导致边框/底色消失 */
+  --chat-border: var(--chat-line);
+  --chat-surface: var(--chat-paper);
+  --chat-text: var(--chat-ink);
+  --chat-text-secondary: var(--chat-muted);
+  --chat-primary: var(--chat-accent);
+
+  /* 排版 */
+  --chat-font: var(--font-sans);
+  --chat-font-heading: var(--font-display);
+
+  /* 尺度 */
+  --chat-control: 40px;
+  --chat-radius: 10px;
+  --chat-space-xs: 4px;
+  --chat-space-sm: 8px;
+  --chat-space-md: 12px;
+  --chat-space-lg: 16px;
+  --chat-space-xl: 24px;
+}

@@ -1,0 +1,127 @@
+﻿/* ============================================================
+   styles.css · 材质工具 + 转场工具
+   （转场由 App.vue 的 <Transition> 与列表 <TransitionGroup> 消费）
+   ============================================================ */
+
+/* ---------- 玻璃材质 ----------
+   苹果式 vibrancy：高饱和模糊 + 半透明白 + 1px 亮边。
+   不用渐变伪造高光，避免在深色内容上出现灰膜。 */
+.glass {
+  position: relative;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-md), inset 0 0 0 1px var(--glass-hairline);
+  border-radius: var(--radius-xl);
+}
+
+.glass--strong {
+  background: var(--glass-bg-strong);
+}
+
+/* ---------- 入场：上浮 ---------- */
+@keyframes lumen-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.enter-fade-up {
+  animation: lumen-rise var(--dur-4) var(--ease-out) backwards;
+  animation-delay: calc(var(--stagger-i, 0) * 55ms);
+}
+
+/* ---------- 列表进出 ---------- */
+.list-pop-enter-active {
+  transition:
+    opacity var(--dur-3) var(--ease-out),
+    transform var(--dur-3) var(--ease-spring);
+  transition-delay: calc(var(--stagger-i, 0) * 45ms);
+}
+
+.list-pop-leave-active {
+  position: absolute;
+  transition:
+    opacity 160ms var(--ease-standard),
+    transform 160ms var(--ease-standard);
+}
+
+.list-pop-enter-from {
+  opacity: 0;
+  transform: translate3d(0, 10px, 0) scale(0.96);
+}
+
+.list-pop-leave-to {
+  opacity: 0;
+  transform: scale(0.94);
+}
+
+.list-pop-move {
+  transition: transform var(--dur-3) var(--ease-standard);
+}
+
+/* ---------- 侧滑（对话切换） ---------- */
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition:
+    opacity var(--dur-3) var(--ease-standard),
+    transform var(--dur-3) var(--ease-standard);
+}
+
+.fade-slide-enter-from {
+  opacity: 0;
+  transform: translate3d(14px, 0, 0);
+}
+
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translate3d(-10px, 0, 0);
+}
+
+/* ---------- 纯淡入（遮罩/提示） ---------- */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity var(--dur-2) var(--ease-standard);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* ---------- 通用按压反馈 ---------- */
+.pressable {
+  transition:
+    transform var(--dur-1) var(--ease-standard),
+    background-color var(--dur-2) var(--ease-standard),
+    box-shadow var(--dur-2) var(--ease-standard);
+}
+
+.pressable:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enter-fade-up {
+    animation: none !important;
+  }
+
+  .list-pop-enter-active,
+  .list-pop-leave-active,
+  .fade-slide-enter-active,
+  .fade-slide-leave-active,
+  .fade-enter-active,
+  .fade-leave-active {
+    transition-duration: 1ms !important;
+  }
+
+  .pressable:active:not(:disabled) {
+    transform: none;
+  }
+}

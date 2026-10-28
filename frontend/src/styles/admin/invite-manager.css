@@ -1,0 +1,291 @@
+/* 一个面板承载整组邀请，行与行用分隔线区分，避免边框、阴影和页脚反复堆叠。 */
+.registration-invite-manager.ui-surface {
+  container: invite-manager / inline-size;
+  min-width: 0;
+  display: grid;
+  gap: var(--admin-space-sm);
+  padding: var(--admin-space-sm);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius-panel);
+  background: var(--admin-panel);
+  box-shadow: none;
+}
+
+.registration-invite-manager__heading h3,
+.invite-list-heading h3 {
+  margin: 0;
+  color: var(--admin-text);
+  font-size: 0.94rem;
+  font-weight: 750;
+}
+
+.invite-create-form {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(112px, 0.25fr) auto;
+  align-items: end;
+  gap: var(--admin-space-xs);
+}
+
+.invite-create-form > .ui-button {
+  min-width: 96px;
+  min-height: 44px;
+}
+
+.invite-list-heading {
+  padding-block-start: var(--admin-space-sm);
+  border-block-start: 1px solid var(--admin-border);
+}
+
+.invite-list-heading h3 {
+  color: var(--admin-muted);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.invite-list {
+  min-width: 0;
+  display: grid;
+}
+
+.admin-invite-card {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 0.55fr) 144px;
+  align-items: center;
+  gap: var(--admin-space-xs) var(--admin-space-md);
+  padding-block: var(--admin-space-sm);
+}
+
+.admin-invite-card + .admin-invite-card {
+  border-block-start: 1px solid var(--admin-border);
+}
+
+.admin-invite-card:first-child {
+  padding-block-start: 0;
+}
+
+.admin-invite-card:last-child {
+  padding-block-end: 0;
+}
+
+.admin-invite-card__identity,
+.admin-invite-card__details {
+  min-width: 0;
+  display: grid;
+  gap: var(--admin-space-3xs);
+}
+
+.admin-invite-card__head {
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--admin-space-xs);
+}
+
+.admin-invite-card__head strong {
+  min-width: 0;
+  color: var(--admin-text);
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+}
+
+.admin-invite-card__status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding-inline: var(--admin-space-2xs);
+  border-radius: var(--admin-radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.admin-invite-card__status--available {
+  background: var(--admin-success-bg);
+  color: var(--admin-success);
+}
+
+.admin-invite-card__status--disabled {
+  background: var(--admin-active);
+  color: var(--admin-muted);
+}
+
+.admin-invite-card__status--exhausted {
+  background: var(--admin-warning-bg);
+  color: var(--admin-warning);
+}
+
+.admin-invite-card__url {
+  min-width: 0;
+  color: var(--admin-green-hover);
+  font-family: var(--admin-font-mono);
+  font-size: 0.75rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+
+.admin-invite-card__usage,
+.admin-invite-card__consumer {
+  margin: 0;
+  color: var(--admin-text);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.admin-invite-card__usage {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--admin-space-3xs) var(--admin-space-2xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.admin-invite-card__remaining,
+.admin-invite-card__consumer {
+  color: var(--admin-muted);
+}
+
+.admin-invite-card__provenance,
+.admin-invite-card__actions {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--admin-space-2xs);
+}
+
+.admin-invite-card__provenance {
+  flex-wrap: wrap;
+  color: var(--admin-muted);
+  font-size: 0.75rem;
+  overflow-wrap: anywhere;
+}
+
+.admin-invite-card__actions {
+  margin-inline-start: auto;
+}
+
+.admin-invite-menu {
+  position: relative;
+}
+
+.admin-invite-menu__trigger {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--admin-radius-control);
+  background: var(--admin-panel);
+  color: var(--admin-muted);
+  cursor: pointer;
+  list-style: none;
+  transition: background-color var(--admin-duration), color var(--admin-duration);
+}
+
+.admin-invite-menu__trigger::-webkit-details-marker {
+  display: none;
+}
+
+.admin-invite-menu__trigger:hover,
+.admin-invite-menu__trigger:active,
+.admin-invite-menu[open] .admin-invite-menu__trigger {
+  background: var(--admin-active);
+  color: var(--admin-text);
+}
+
+.admin-invite-menu__trigger:focus-visible {
+  outline: 2px solid var(--admin-focus);
+  outline-offset: 2px;
+}
+
+.admin-invite-menu__popover {
+  position: absolute;
+  z-index: 4;
+  inset-block-start: calc(100% + var(--admin-space-3xs));
+  inset-inline-end: 0;
+  min-width: 132px;
+  padding: var(--admin-space-3xs);
+  border: 1px solid var(--admin-border-strong);
+  border-radius: var(--admin-radius-control);
+  background: var(--admin-panel);
+  box-shadow: var(--admin-shadow-raised);
+}
+
+.admin-invite-menu__popover button {
+  width: 100%;
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  gap: var(--admin-space-2xs);
+  padding-inline: var(--admin-space-xs);
+  border: 0;
+  border-radius: var(--admin-radius-control);
+  background: transparent;
+  color: var(--admin-danger);
+  font-size: 0.76rem;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.admin-invite-menu__popover button:hover,
+.admin-invite-menu__popover button:active {
+  background: var(--admin-danger-bg);
+}
+
+.admin-invite-menu__popover button:focus-visible {
+  outline: 2px solid var(--admin-focus);
+  outline-offset: -2px;
+}
+
+@container invite-manager (max-width: 48rem) {
+  .admin-invite-card {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--admin-space-2xs) var(--admin-space-xs);
+  }
+
+  .admin-invite-card__details {
+    grid-column: 1;
+  }
+
+  .admin-invite-card__actions {
+    grid-column: 2;
+    grid-row: 1 / 3;
+  }
+}
+
+@container invite-manager (max-width: 32rem) {
+  .invite-create-form {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .invite-create-form__note {
+    grid-column: 1 / -1;
+  }
+
+  .admin-invite-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .admin-invite-card__actions {
+    grid-column: 1;
+    grid-row: auto;
+    margin-inline-start: 0;
+  }
+}
+
+/* 紧凑只压缩容器留白；触屏保留完整点按面积，包括「更多」和撤销菜单。 */
+@media (max-width: 40rem), (pointer: coarse) {
+  .admin-invite-card__actions .ui-button,
+  .admin-invite-menu__popover button {
+    min-height: 44px;
+  }
+
+  .admin-invite-menu__trigger {
+    width: 44px;
+    height: 44px;
+  }
+}

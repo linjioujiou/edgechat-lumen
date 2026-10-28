@@ -1,0 +1,179 @@
+/* ============================================================
+   Lumen Design System · Tokens
+   唯一真源：颜色 / 字体 / 间距 / 圆角 / 阴影 / 动效曲线。
+   其它样式文件只消费这里的变量，不再各自定义视觉常量。
+   语言：中性灰阶 + 单一强调色（Apple Blue），强调留白与层次。
+   ============================================================ */
+
+:root {
+  /* ---------- 字体 ---------- */
+  /* 系统字体优先：macOS 命中 SF Pro，Windows 命中 Segoe UI Variable，
+     中文落到苹方 / 微软雅黑。不下载外部字体，首屏无字体请求。 */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    "Segoe UI Variable Text", "Segoe UI", "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", system-ui, sans-serif;
+  --font-display: "SF Pro Display", -apple-system, BlinkMacSystemFont,
+    "Segoe UI Variable Display", "Segoe UI", "PingFang SC", "Microsoft YaHei",
+    system-ui, sans-serif;
+  --font-mono: "SF Mono", ui-monospace, "JetBrains Mono", "Cascadia Code",
+    Consolas, "Courier New", monospace;
+
+  --text-2xs: 0.6875rem;  /* 11px 辅助计数 */
+  --text-xs: 0.75rem;     /* 12px 时间戳 / 标签 */
+  --text-sm: 0.8125rem;   /* 13px 次要正文 */
+  --text-base: 0.9375rem; /* 15px 正文 */
+  --text-md: 1rem;
+  --text-lg: 1.1875rem;   /* 19px 区块标题 */
+  --text-xl: 1.5rem;      /* 24px 页面标题 */
+  --text-2xl: 2rem;
+  --text-3xl: 2.75rem;    /* 44px 登录主标题 */
+
+  --tracking-tight: -0.022em;
+  --tracking-tighter: -0.035em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+
+  /* ---------- 中性色 ---------- */
+  --lumen-canvas: #f5f5f7;
+  --lumen-canvas-deep: #eeeef2;
+  --lumen-elevated: #ffffff;
+  --lumen-elevated-soft: #fbfbfd;
+
+  /* 文字层级：每一档都在白底与 #f5f5f7 上通过 4.5:1。
+     ink-5 只用于非文字图形（圆点/分隔），不承载正文。 */
+  --lumen-ink: #1d1d1f;
+  --lumen-ink-2: #424245;
+  --lumen-ink-3: #5f5f65;
+  --lumen-ink-4: #6e6e73;
+  --lumen-ink-5: #8e8e93;
+
+  --lumen-line: rgba(0, 0, 0, 0.075);
+  --lumen-line-soft: rgba(0, 0, 0, 0.045);
+  --lumen-line-strong: rgba(0, 0, 0, 0.12);
+
+  /* ---------- 强调色 ---------- */
+  --lumen-accent: #0071e3;
+  --lumen-accent-hover: #0077ed;
+  --lumen-accent-press: #0068d0;
+  --lumen-accent-rgb: 0, 113, 227;
+  /* 填充底与"着色文字"对明度的要求相反，因此拆两支：
+     accent 给图标/描边/填充（配白字 4.70:1），accent-text 给浅底上的文字（5.38:1）。 */
+  --lumen-accent-text: #0059b3;
+  --lumen-accent-soft: rgba(0, 113, 227, 0.1);
+  --lumen-accent-ghost: rgba(0, 113, 227, 0.06);
+  --lumen-indigo: #5e5ce6;
+  --lumen-indigo-rgb: 94, 92, 230;
+
+  /* ---------- 语义色 ---------- */
+  --lumen-success: #1f7a34;
+  --lumen-success-soft: rgba(31, 122, 52, 0.1);
+  --lumen-warning: #b25000;
+  --lumen-warning-soft: rgba(178, 80, 0, 0.1);
+  --lumen-danger: #d70015;
+  --lumen-danger-soft: rgba(215, 0, 21, 0.08);
+
+  /* ---------- 材质 ---------- */
+  /* 三层玻璃：底部承载 → 卡片 → 浮层。alpha 越高越"实"。 */
+  --glass-blur: 24px;
+  --glass-saturate: 180%;
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-bg-strong: rgba(255, 255, 255, 0.86);
+  --glass-border: rgba(255, 255, 255, 0.72);
+  --glass-hairline: rgba(0, 0, 0, 0.06);
+
+  --surface-0: rgba(255, 255, 255, 0.66);
+  --surface-1: rgba(255, 255, 255, 0.78);
+  --surface-2: rgba(255, 255, 255, 0.9);
+  --surface-3: #ffffff;
+
+  /* ---------- 圆角 ---------- */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-control: 10px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-window: 26px;
+  --radius-pill: 999px;
+
+  /* ---------- 阴影：多层叠加，靠近距离微阴影塑形 ---------- */
+  --shadow-xs: 0 1px 1px rgba(0, 0, 0, 0.03);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.035);
+  --shadow-md: 0 2px 5px rgba(0, 0, 0, 0.04), 0 8px 20px rgba(0, 0, 0, 0.055);
+  --shadow-lg: 0 6px 16px rgba(0, 0, 0, 0.05), 0 24px 56px rgba(0, 0, 0, 0.09);
+  --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.07), 0 40px 90px rgba(0, 0, 0, 0.12);
+  --shadow-accent: 0 6px 18px rgba(var(--lumen-accent-rgb), 0.24);
+  --ring-accent: 0 0 0 3.5px rgba(var(--lumen-accent-rgb), 0.16);
+
+  /* ---------- 间距 ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 48px;
+  --page-padding: 24px;
+
+  /* ---------- 动效 ---------- */
+  /* ease-standard 是 Apple 观感的收尾曲线：起步快、结尾极缓。 */
+  --ease-standard: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.42, 0.64, 1);
+  --ease-snappy: cubic-bezier(0.2, 0.9, 0.1, 1);
+
+  --dur-1: 110ms;
+  --dur-2: 180ms;
+  --dur-3: 280ms;
+  --dur-4: 420ms;
+  --dur-5: 640ms;
+
+  --transition-soft: var(--dur-2) var(--ease-standard);
+  --transition-base: var(--dur-3) var(--ease-standard);
+
+  /* 旧样式文件仍在引用的历史变量，统一在此收口，避免解析成空值。 */
+  --bg: var(--lumen-canvas);
+  --text: var(--lumen-ink);
+  --text-soft: var(--lumen-ink-3);
+  --text-faint: var(--lumen-ink-4);
+  --line-soft: var(--lumen-line);
+  --line-strong: var(--lumen-line-strong);
+  --accent: var(--lumen-accent);
+  --accent-soft: var(--lumen-accent-soft);
+  --warm: var(--lumen-indigo);
+  --warm-soft: rgba(var(--lumen-indigo-rgb), 0.1);
+  --cool: var(--lumen-accent);
+  --cool-soft: var(--lumen-accent-soft);
+  --success: var(--lumen-success);
+  --success-soft: var(--lumen-success-soft);
+  --danger: var(--lumen-danger);
+  --danger-soft: var(--lumen-danger-soft);
+  --warning: var(--lumen-warning);
+  --warning-soft: var(--lumen-warning-soft);
+  --blur-md: blur(16px) saturate(170%);
+  --blur-lg: blur(28px) saturate(180%);
+  --blur-sm: blur(10px) saturate(160%);
+
+  /* 站点级可配置色：默认跟随强调色，后台可覆盖。 */
+  --site-brand: var(--lumen-accent);
+  --site-brand-hover: var(--lumen-accent-hover);
+  --site-brand-rgb: var(--lumen-accent-rgb);
+  --site-secondary-rgb: var(--lumen-indigo-rgb);
+  --site-link: var(--lumen-accent);
+  --site-selected: var(--lumen-accent-soft);
+  --site-action-bg: var(--lumen-accent);
+  --site-action-hover: var(--lumen-accent-hover);
+  --site-action-pressed: var(--lumen-accent-press);
+  --site-action-solid: var(--lumen-accent);
+  --site-on-action: #ffffff;
+  --site-button-background: var(--lumen-accent);
+
+  /* 认证页专用 */
+  --auth-canvas: var(--lumen-canvas);
+  --auth-tide: none;
+  --auth-ink: var(--lumen-ink);
+  --auth-brand: var(--lumen-accent);
+  --auth-muted: var(--lumen-ink-3);
+}

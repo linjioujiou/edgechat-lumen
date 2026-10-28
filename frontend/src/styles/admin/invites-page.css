@@ -1,0 +1,32 @@
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4
+ * genre: modern-minimal · macrostructure: Workbench · design-system: design.md · designed-as-app
+ * 用紧凑表单和分隔列表代替独立卡片堆叠，保留品牌与可读字号，不靠压缩触控区域提高密度。
+ */
+
+.admin-invites-page {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  gap: var(--admin-space-md);
+}
+
+.admin-invites-page__intro {
+  margin: 0;
+  color: var(--admin-muted);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.admin-invites-page .admin-section__body {
+  gap: var(--admin-space-md);
+}
+
+@media (max-width: 40rem) {
+  .admin-invites-page {
+    gap: var(--admin-space-sm);
+  }
+
+  .admin-invites-page .admin-section__body {
+    gap: var(--admin-space-md);
+  }
+}

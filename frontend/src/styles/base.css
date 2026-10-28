@@ -1,0 +1,209 @@
+/* ============================================================
+   base.css · 重置 / 画布 / 排版基线
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+  margin: 0;
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
+html {
+  background: var(--lumen-canvas);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-text-size-adjust: 100%;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- 画布 ----------
+   近中性底 + 两团极低饱和的环境光。光团只负责"呼吸感"，
+   不参与任何语义，因此饱和度压到 8% 以内，避免抢正文对比度。 */
+body {
+  position: relative;
+  background: var(--site-background, var(--lumen-canvas));
+  color: var(--lumen-ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.55;
+  letter-spacing: var(--tracking-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(90px);
+  will-change: transform;
+}
+
+/* 左上：冷蓝，极淡 */
+body::before {
+  top: -32vh;
+  left: -12vw;
+  width: 68vw;
+  height: 68vw;
+  max-width: 900px;
+  max-height: 900px;
+  background: radial-gradient(
+    circle,
+    rgba(var(--site-brand-rgb, 0, 113, 227), 0.14),
+    rgba(var(--site-brand-rgb, 0, 113, 227), 0.03) 62%,
+    transparent 72%
+  );
+  animation: lumen-drift-a 54s var(--ease-in-out) infinite alternate;
+}
+
+/* 右下：靛紫，更淡，形成冷暖对照 */
+body::after {
+  right: -16vw;
+  bottom: -36vh;
+  width: 62vw;
+  height: 62vw;
+  max-width: 820px;
+  max-height: 820px;
+  background: radial-gradient(
+    circle,
+    rgba(var(--site-secondary-rgb, 94, 92, 230), 0.1),
+    rgba(var(--site-secondary-rgb, 94, 92, 230), 0.02) 60%,
+    transparent 70%
+  );
+  animation: lumen-drift-b 68s var(--ease-in-out) infinite alternate;
+}
+
+@keyframes lumen-drift-a {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(5vw, 6vh, 0) scale(1.08); }
+}
+
+@keyframes lumen-drift-b {
+  from { transform: translate3d(0, 0, 0) scale(1.04); }
+  to   { transform: translate3d(-6vw, -5vh, 0) scale(1); }
+}
+
+a {
+  color: var(--site-link, var(--lumen-accent));
+  text-decoration: none;
+  transition: opacity var(--transition-soft);
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: var(--tracking-tight);
+  font-weight: 600;
+  color: var(--lumen-ink);
+}
+
+/* 数字统一等宽，表格与计数不跳动 */
+.tnum,
+[data-numeric] {
+  font-variant-numeric: tabular-nums;
+}
+
+::selection {
+  background: rgba(var(--site-brand-rgb, 0, 113, 227), 0.18);
+  color: var(--lumen-ink);
+}
+
+/* 细滚动条，悬停才明显 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.18) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: var(--radius-pill);
+  background-clip: content-box;
+  background-color: rgba(0, 0, 0, 0.16);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.28);
+}
+
+#app {
+  position: relative;
+  z-index: 1;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* 统一焦点环：只在键盘导航时出现，且不改变布局尺寸 */
+:where(button, a, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid rgba(var(--site-brand-rgb, 0, 113, 227), 0.7);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none;
+  }
+}
