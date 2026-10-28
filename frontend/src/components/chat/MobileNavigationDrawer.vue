@@ -77,10 +77,6 @@ useOverlayLifecycle({
               <LayoutDashboard :size="21" aria-hidden="true" />
               <span>{{ t('nav.admin') }}</span>
             </button>
-            <a href="https://github.com/aozorae/Edgechat" target="_blank" rel="noopener noreferrer">
-              <img src="/github.svg" width="21" height="21" alt="" />
-              <span>{{ t('nav.githubRepository') }}</span>
-            </a>
             <button type="button" class="mobile-navigation-drawer__danger" @click="emit('logout')">
               <LogOut :size="21" aria-hidden="true" />
               <span>{{ t('auth.signOut') }}</span>
@@ -163,8 +159,7 @@ useOverlayLifecycle({
   padding-top: 12px;
 }
 
-.mobile-navigation-drawer__actions button,
-.mobile-navigation-drawer__actions a {
+.mobile-navigation-drawer__actions button {
   display: grid;
   grid-template-columns: 28px minmax(0, 1fr);
   align-items: center;
@@ -181,7 +176,6 @@ useOverlayLifecycle({
 }
 
 .mobile-navigation-drawer__actions button:active,
-.mobile-navigation-drawer__actions a:active,
 .mobile-navigation-drawer__close:active {
   background: #f0f2f5;
 }

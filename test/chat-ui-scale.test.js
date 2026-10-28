@@ -139,18 +139,19 @@ test("桌面侧栏提供明确的个人设置入口并保留移动端入口", ()
 		assert.match(chatPage, /\.right-sidebar-action__label\s*{[^}]*font-size:\s*11px;/s);
 });
 
-	test("GitHub 仓库入口位于添加人员左侧并复用相同按钮尺寸", () => {
-		const githubLink = chatPage.indexOf('href="https://github.com/aozorae/Edgechat"');
-		const addConversation = chatPage.indexOf(':title="t(\'chat.addPeople\')"');
-	assert.notEqual(githubLink, -1);
-	assert.ok(githubLink < addConversation);
-	assert.match(chatPage, /src="\/github\.svg"/);
-	assert.match(chatPage, /rel="noopener noreferrer"/);
+	test("聊天页按需求移除 GitHub 仓库入口，且不残留样式", () => {
+		// 「移除」也要有可执行判据：入口、图标资源、专用样式类都不得复活。
+		assert.equal(chatPage.indexOf('href="https://github.com/aozorae/Edgechat"'), -1);
+		assert.equal(chatPage.indexOf('/github.svg'), -1);
+		assert.doesNotMatch(chatPage, /header-action--github/);
+		// 添加人员按钮仍在原位
+		assert.notEqual(chatPage.indexOf(':title="t(\'chat.addPeople\')"'), -1);
 
-	const headerAction = getStyleRule(chatPage, ".header-action");
+		const headerAction = getStyleRule(chatPage, ".header-action");
 		assert.match(headerAction, /flex:\s*0 0 var\(--chat-control\);/);
 		assert.match(headerAction, /width:\s*var\(--chat-control\);/);
 		assert.match(headerAction, /height:\s*var\(--chat-control\);/);
+		assert.doesNotMatch(headerAction, /img/);
 	});
 
 	test("语言切换入口位于聊天页右上区域且移动端保持可达", () => {

@@ -634,17 +634,6 @@ watch(
           </button>
           <h1 class="brand-title">EdgeChat</h1>
           <div class="sidebar-header-actions">
-            <a
-              class="header-action header-action--github"
-              href="https://github.com/aozorae/Edgechat"
-              target="_blank"
-              rel="noopener noreferrer"
-              :title="t('nav.githubRepository')"
-              :aria-label="t('nav.openGithubRepository')"
-            >
-              <img src="/github.svg" alt="" width="20" height="20" />
-              <span class="sr-only">{{ t('nav.openGithubRepository') }}</span>
-            </a>
             <button
               type="button"
               class="header-action header-action--primary"
@@ -1427,17 +1416,6 @@ watch(
   outline-offset: 2px;
 }
 
-.header-action img {
-  display: block;
-  width: 18px;
-  height: 18px;
-  opacity: 0.72;
-}
-
-.header-action:hover img {
-  opacity: 1;
-}
-
 /* 连接状态：呼吸点 */
 .chat-header__status {
   width: 8px;
@@ -1740,10 +1718,6 @@ watch(
     flex-basis: 44px;
     width: 44px;
     height: 44px;
-  }
-
-  .header-action--github {
-    display: none;
   }
 
   .sidebar-header-actions {
