@@ -171,7 +171,7 @@ function resetDemo() {
   width: 194px;
   padding: 10px;
   border: 1px solid rgba(255, 255, 255, 0.72);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.84);
   box-shadow:
     0 1px 2px rgba(0, 0, 0, 0.04),
@@ -205,7 +205,7 @@ function resetDemo() {
   height: 32px;
   padding: 0 8px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 9px;
+  border-radius: var(--radius-sm);
   background: #fff;
   color: var(--lumen-ink, #1d1d1f);
   font: inherit;
@@ -231,7 +231,7 @@ function resetDemo() {
   gap: 5px;
   height: 30px;
   border: 0;
-  border-radius: 9px;
+  border-radius: var(--radius-sm);
   background: rgba(0, 0, 0, 0.05);
   color: var(--lumen-ink-2, #424245);
   font-size: 11.5px;
@@ -252,7 +252,7 @@ function resetDemo() {
   gap: 4px;
   height: 30px;
   padding: 0 10px;
-  border-radius: 9px;
+  border-radius: var(--radius-sm);
   background: rgba(255, 214, 10, 0.18);
   color: #7a5c00;
   font-size: 11.5px;
@@ -329,12 +329,12 @@ function resetDemo() {
 <style>
 /* 演示胶囊占用了左下角，把侧栏底部的用户区抬起来，避免互相遮挡 */
 body:has(.demo-navigator) .right-sidebar-inner {
-  padding-bottom: 44px;
+  padding-bottom: 52px;
 }
 
 body:has(.demo-navigator) .app-sidebar,
 body:has(.demo-navigator) .admin-sidebar__body {
-  padding-bottom: 44px;
+  padding-bottom: 52px;
 }
 
 @media (max-width: 640px) {

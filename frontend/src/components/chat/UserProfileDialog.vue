@@ -85,7 +85,7 @@ useOverlayLifecycle({
   overflow-y: auto;
   box-sizing: border-box;
   padding: 24px;
-  border-radius: 20px;
+  border-radius: var(--radius-xl);
   background: var(--color-background, #fff);
   color: var(--color-text, #111b21);
   box-shadow: 0 20px 60px rgba(11, 20, 26, 0.2);
@@ -108,6 +108,6 @@ useOverlayLifecycle({
 .user-profile-dialog button:focus-visible { outline: 2px solid var(--site-brand, #008069); outline-offset: 3px; }
 @media (max-width: 640px) {
   .user-profile-overlay { align-items: flex-end; padding: 0; }
-  .user-profile-dialog { width: 100%; max-height: calc(100dvh - env(safe-area-inset-top) - 16px); border-radius: 20px 20px 0 0; padding: 20px 24px calc(24px + env(safe-area-inset-bottom)); }
+  .user-profile-dialog { width: 100%; max-height: calc(100dvh - env(safe-area-inset-top) - 16px); border-radius: var(--radius-xl) var(--radius-xl) 0 0; padding: 20px 24px calc(24px + env(safe-area-inset-bottom)); }
 }
 </style>

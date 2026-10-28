@@ -86,15 +86,21 @@
   --surface-2: rgba(255, 255, 255, 0.9);
   --surface-3: #ffffff;
 
-  /* ---------- 圆角 ---------- */
+  /* ---------- 圆角 ----------
+     苹果的圆角是**连续曲率（squircle）**，不是圆弧；而且半径随控件尺寸收紧。
+     26~28px 那种大圆角读起来是"网页卡片"，不是系统界面，所以这里整体压小一档：
+     窗口 18 / 面板 16 / 卡片 14 / 菜单 12 / 控件 10 / 选项 8 / 徽标 6。
+     配合文件末尾的 corner-shape: squircle，拐角才会平滑地并入直边。 */
   --radius-xs: 6px;
   --radius-sm: 8px;
   --radius-control: 10px;
   --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
-  --radius-window: 26px;
+  --radius-lg: 14px;
+  --radius-xl: 16px;
+  --radius-window: 18px;
   --radius-pill: 999px;
+  /* 胶囊型控件的"真半径"（= 高度的一半），供需要精确同心时使用 */
+  --radius-capsule: 999px;
 
   /* ---------- 阴影：多层叠加，靠近距离微阴影塑形 ---------- */
   --shadow-xs: 0 1px 1px rgba(0, 0, 0, 0.03);
@@ -177,3 +183,103 @@
   --auth-brand: var(--lumen-accent);
   --auth-muted: var(--lumen-ink-3);
 }
+
+/* ============================================================
+   连续曲率圆角（squircle）
+   圆弧在直边处会留下一个可见的"拐点"，这是网页圆角和系统界面的分水岭。
+   corner-shape: squircle 让拐角走超椭圆曲线，平滑并入直边 —— 苹果的观感来源。
+   Chrome 139+ 支持；不支持的浏览器整块失效，自动退回圆弧，不影响布局。
+   胶囊与正圆不在此列：它们本身就是极值形态，套超椭圆反而会变形。
+   ============================================================ */
+@supports (corner-shape: squircle) {
+  :where(
+    .app-window,
+    .login-container,
+    .login-logo,
+    .login-input,
+    .glass,
+    .ui-surface,
+    .ui-input,
+    .ui-textarea,
+    select.ui-input,
+    .ui-select__trigger,
+    .ui-select__panel,
+    .ui-select__option,
+    .ui-button,
+    .page-card,
+    .login-card,
+    .field input,
+    .field textarea,
+    .field select,
+    .message-bubble,
+    .composer-row,
+    .composer-rich-editor,
+    .mention-menu,
+    .mention-option,
+    .sidebar-item,
+    .header-action,
+    .chat-header__button,
+    .right-sidebar-action,
+    .right-sidebar-user,
+    .demo-navigator__panel,
+    .demo-navigator select,
+    .demo-navigator__reset,
+    .demo-navigator__star,
+    .language-switch,
+    .language-switch__menu,
+    .language-switch__option,
+    .select-panel,
+    .room-management-sidebar,
+    .settings-container,
+    .settings-section,
+    .crop-panel,
+    .crop-stage,
+    .add-conversation-dialog,
+    .room-dialog,
+    .room-dialog__member,
+    .public-group-dialog,
+    .user-profile-dialog,
+    .image-preview-overlay__action,
+    .image-preview-overlay__image
+  ) {
+    corner-shape: squircle;
+  }
+}
+
+/* ============================================================
+   材质降级：让"减少透明度"与"提高对比度"两个系统偏好都有对应表现
+   ============================================================ */
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --glass-bg: #ffffff;
+    --glass-bg-strong: #ffffff;
+    --surface-0: #ffffff;
+    --surface-1: #ffffff;
+    --surface-2: #ffffff;
+    --blur-sm: none;
+    --blur-md: none;
+    --blur-lg: none;
+  }
+
+  .app-window,
+  .login-container,
+  .chat-header,
+  .message-composer,
+  .left-sidebar,
+  .demo-navigator__panel {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --lumen-line: rgba(0, 0, 0, 0.22);
+    --lumen-line-soft: rgba(0, 0, 0, 0.16);
+    --lumen-line-strong: rgba(0, 0, 0, 0.32);
+    --chat-line: rgba(0, 0, 0, 0.22);
+    --lumen-ink-3: #45454a;
+    --lumen-ink-4: #525257;
+  }
+}
+

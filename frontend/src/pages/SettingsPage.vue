@@ -486,7 +486,7 @@ async function changePassword() {
   flex-direction: column;
   gap: 16px;
   padding: 28px;
-  border-radius: 24px;
+  border-radius: var(--radius-window);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(247, 250, 253, 0.68)),
     rgba(255, 255, 255, 0.4);
@@ -544,7 +544,7 @@ async function changePassword() {
   background: none;
   cursor: pointer;
   padding: 0;
-  border-radius: 16px;
+  border-radius: 50%;
   overflow: hidden;
   transition: transform 0.2s ease;
 }
@@ -563,7 +563,7 @@ async function changePassword() {
   color: #fff;
   opacity: 0;
   transition: opacity 0.2s ease;
-  border-radius: 16px;
+  border-radius: 50%;
 }
 
 .settings-header__right {
@@ -656,7 +656,7 @@ async function changePassword() {
   flex-direction: column;
   gap: 12px;
   padding: 20px;
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow:
@@ -800,7 +800,7 @@ async function changePassword() {
   align-items: center;
   gap: 20px;
   padding: 36px;
-  border-radius: 28px;
+  border-radius: var(--radius-window);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(247, 250, 253, 0.72)),
     rgba(255, 255, 255, 0.5);
@@ -821,7 +821,7 @@ async function changePassword() {
 .crop-stage {
   width: 280px;
   height: 280px;
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow:
     0 8px 32px rgba(var(--site-brand-rgb, 91, 141, 191), 0.15),

@@ -56,3 +56,37 @@
 .admin-page h3 {
   letter-spacing: -0.02em;
 }
+
+/* 后台同样使用连续曲率圆角：只挑承担"面板/控件"角色的类，
+   避免影响头像等正圆元素（50% 半径套超椭圆会变成圆角方块）。 */
+@supports (corner-shape: squircle) {
+  .admin-page :where(
+    .ui-surface,
+    .ui-button,
+    .ui-input,
+    .field input,
+    .field select,
+    .field textarea,
+    .admin-panel,
+    .admin-metric-card,
+    .admin-dashboard-metric,
+    .admin-nav-item,
+    .admin-nav-subitem,
+    .admin-nav-search,
+    .admin-table-wrap,
+    .admin-icon-tile,
+    .admin-icon-button,
+    .admin-quick-link,
+    .admin-user-search,
+    .admin-ban-dialog,
+    .admin-ban-dialog__option,
+    .rbac-panel,
+    .site-theme__option,
+    .telegram-status,
+    .maintenance-body,
+    .maintenance-check,
+    .maintenance-demo
+  ) {
+    corner-shape: squircle;
+  }
+}

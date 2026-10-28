@@ -99,7 +99,7 @@ useOverlayLifecycle({
   max-height: calc(100dvh - 32px);
   overflow-y: auto;
   padding: 32px 28px 24px;
-  border-radius: 16px;
+  border-radius: var(--radius-xl);
   background: #ffffff;
   box-shadow: 0 20px 60px rgba(11, 20, 26, 0.18);
   text-align: center;
@@ -258,7 +258,7 @@ useOverlayLifecycle({
     width: 100%;
     max-height: calc(100dvh - env(safe-area-inset-top));
     padding: 28px 20px max(20px, env(safe-area-inset-bottom));
-    border-radius: 16px 16px 0 0;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   }
 }
 

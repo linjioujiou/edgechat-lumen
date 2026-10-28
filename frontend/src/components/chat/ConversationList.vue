@@ -122,7 +122,7 @@ const emit = defineEmits(["select"]);
   margin: 1px 8px;
   padding: 9px 11px;
   border: none;
-  border-radius: 12px;
+  border-radius: var(--radius-control);
   background: transparent;
   cursor: pointer;
   text-align: left;

@@ -144,7 +144,7 @@ const time = computed(() => props.msg.createdAt ? formatTime(props.msg.createdAt
   min-width: 0;
   max-width: min(72%, 600px);
   padding: 10px 12px 8px;
-  border-radius: 18px 18px 18px 6px;
+  border-radius: 18px 18px 18px 5px;
   background: var(--chat-incoming);
   color: var(--chat-ink);
   border: none;
@@ -164,7 +164,7 @@ const time = computed(() => props.msg.createdAt ? formatTime(props.msg.createdAt
 .message-row--own .message-bubble {
   background: var(--chat-outgoing);
   color: var(--chat-outgoing-ink);
-  border-radius: 18px 18px 6px 18px;
+  border-radius: 18px 18px 5px 18px;
 }
 
 .message-sender-name {

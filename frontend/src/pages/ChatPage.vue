@@ -1054,7 +1054,7 @@ watch(
   height: 46px;
   padding: 0;
   border: none;
-  border-radius: 13px;
+  border-radius: var(--radius-md);
   background: transparent;
   color: var(--chat-muted);
   cursor: pointer;
@@ -1089,7 +1089,7 @@ watch(
   padding: 7px 2px 6px;
   gap: 5px;
   flex-direction: column;
-  border-radius: 14px;
+  border-radius: var(--radius-md);
 }
 
 .right-sidebar-action--admin {
@@ -1137,7 +1137,7 @@ watch(
   top: 50%;
   transform: translateY(-50%) translateX(-4px);
   padding: 5px 9px;
-  border-radius: 7px;
+  border-radius: var(--radius-xs);
   background: rgba(29, 29, 31, 0.92);
   color: #fff;
   font-size: var(--text-xs);
@@ -1529,7 +1529,7 @@ watch(
   min-height: 32px;
   padding: 0 10px;
   border: 0;
-  border-radius: 7px;
+  border-radius: var(--radius-xs);
   background: transparent;
   color: var(--chat-accent);
   font: inherit;
@@ -1596,7 +1596,7 @@ watch(
   width: 62px;
   height: 62px;
   padding: 15px;
-  border-radius: 22px;
+  border-radius: var(--radius-xl);
   background: var(--chat-paper);
   box-shadow:
     var(--shadow-md),

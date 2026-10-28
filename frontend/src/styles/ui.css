@@ -6,7 +6,8 @@
 
 /* ---------- Surface ---------- */
 .ui-surface {
-  border-radius: var(--radius-lg);
+  /* 卡片比窗口低一档（18 → 12），嵌套关系才看得出来 */
+  border-radius: var(--radius-md);
   border: 1px solid var(--lumen-line);
   background: var(--lumen-elevated);
   transition:

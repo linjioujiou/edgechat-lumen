@@ -86,7 +86,7 @@ async function openAvatarPicker() {
     max(16px, env(safe-area-inset-left));
   background: rgba(0, 0, 0, 0.4);
 }
-.room-dialog { width: min(420px, 100%); max-height: calc(100dvh - 32px); overflow-y: auto; padding: 24px; border-radius: 16px; background: #fff; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); }
+.room-dialog { width: min(420px, 100%); max-height: calc(100dvh - 32px); overflow-y: auto; padding: 24px; border-radius: var(--radius-xl); background: #fff; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); }
 .room-dialog h2 { margin: 0 0 20px; font-size: 18px; color: #111b21; }
 .room-dialog__avatar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
 .room-dialog__file { display: none; }
@@ -112,7 +112,7 @@ async function openAvatarPicker() {
     width: 100%;
     max-height: calc(100dvh - env(safe-area-inset-top));
     padding: 20px 16px max(16px, env(safe-area-inset-bottom));
-    border-radius: 16px 16px 0 0;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   }
 
   .room-dialog__avatar-row {

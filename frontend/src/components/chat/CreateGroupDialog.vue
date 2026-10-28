@@ -111,7 +111,7 @@ useOverlayLifecycle({
   max-height: calc(100dvh - 32px);
   overflow-y: auto;
   padding: 24px;
-  border-radius: 16px;
+  border-radius: var(--radius-xl);
   background: #fff;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
@@ -128,7 +128,7 @@ useOverlayLifecycle({
 .room-dialog__members { margin-top: 20px; }
 .room-dialog__members > label { display: block; margin-bottom: 8px; font-size: 13px; color: #6b7c93; }
 .room-dialog__member-list { display: flex; flex-wrap: wrap; gap: 8px; max-height: 180px; overflow-y: auto; }
-.room-dialog__member { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 12px; border: 1px solid #e8ecf0; border-radius: 20px; background: #fff; cursor: pointer; touch-action: manipulation; }
+.room-dialog__member { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 12px; border: 1px solid #e8ecf0; border-radius: var(--radius-md); background: #fff; cursor: pointer; touch-action: manipulation; }
 .room-dialog__member--selected { border-color: var(--site-brand, #008069); background: var(--site-selected, #e8f0fe); }
 .room-dialog__actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px; }
 .room-dialog__error { margin: 16px 0 0; color: #b42318; font-size: 13px; overflow-wrap: anywhere; }
@@ -151,7 +151,7 @@ useOverlayLifecycle({
     width: 100%;
     max-height: calc(100dvh - env(safe-area-inset-top));
     padding: 20px 16px max(16px, env(safe-area-inset-bottom));
-    border-radius: 16px 16px 0 0;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   }
 
   .room-dialog__actions {

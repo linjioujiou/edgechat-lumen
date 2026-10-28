@@ -12,7 +12,7 @@
   width: 100%;
   padding: 0;
   border: 0;
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   background: transparent;
   overflow: hidden;
   cursor: zoom-in;
@@ -23,7 +23,7 @@
   width: 100%;
   max-height: 320px;
   object-fit: contain;
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   background: rgba(31, 37, 33, 0.08);
 }
 
@@ -37,7 +37,7 @@
   width: min(360px, 68vw);
   max-width: 100%;
   border: 0;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   background: var(--chat-canvas);
 }
 

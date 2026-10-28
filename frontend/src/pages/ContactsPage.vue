@@ -132,7 +132,7 @@ async function unblockContact(userId: number) {
   gap: 10px;
   padding: 0 14px;
   border: 1px solid var(--chat-line);
-  border-radius: 22px;
+  border-radius: var(--radius-pill);
   background: var(--chat-hover);
   color: var(--chat-muted);
 }

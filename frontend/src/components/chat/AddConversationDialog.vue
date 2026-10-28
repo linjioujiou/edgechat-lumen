@@ -152,7 +152,7 @@ watch(
   width: min(440px, 100%);
   max-height: min(620px, calc(100dvh - 32px));
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: var(--radius-xl);
   background: #fff;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
@@ -368,7 +368,7 @@ watch(
   .add-conversation-dialog {
     width: 100%;
     max-height: calc(100dvh - env(safe-area-inset-top));
-    border-radius: 16px 16px 0 0;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   }
 
   .add-conversation-dialog__header,
